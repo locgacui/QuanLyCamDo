@@ -15,7 +15,7 @@ namespace QuanLyCamDo
     {
             private static MasterCode instance;
 
-            public string cn = "Data Source=DESKTOP-9PDL730\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True";
+            public string cn = "Data Source=DESKTOP-9PDL730\\SQLEXPRESS;Initial Catalog=QuanLyCamDo;User ID=sa;Password=locgacui";
             internal static MasterCode Instance
             {
                 get
