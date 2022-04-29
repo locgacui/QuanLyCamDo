@@ -40,10 +40,12 @@ D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\bin\Debug\de\DevExpress.Pdf.v19.
 D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\bin\Debug\es\DevExpress.Pdf.v19.1.Core.resources.dll
 D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\bin\Debug\ja\DevExpress.Pdf.v19.1.Core.resources.dll
 D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\bin\Debug\ru\DevExpress.Pdf.v19.1.Core.resources.dll
-D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\obj\Debug\QuanLyCamDo.csprojResolveAssemblyReference.cache
 D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\obj\Debug\QuanLyCamDo.Login.resources
 D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\obj\Debug\QuanLyCamDo.Properties.Resources.resources
 D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\obj\Debug\QuanLyCamDo.csproj.GenerateResource.Cache
 D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\obj\Debug\QuanLyCamDo.exe.licenses
 D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\obj\Debug\QuanLyCamDo.exe
 D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\obj\Debug\QuanLyCamDo.pdb
+D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\obj\Debug\QuanLyCamDo.csproj.AssemblyReference.cache
+D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\obj\Debug\QuanLyCamDo.csproj.CoreCompileInputs.cache
+D:\Tai lieu hoc\loc\c#2\QuanLyCamDo\QuanLyCamDo\obj\Debug\QuanLyCamDo.csproj.CopyComplete
