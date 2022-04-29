@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using QuanLyCamDo.DTO;
+using QuanLyCamDo.DAO;
+using QuanLyCamDo.ResponseAPI;
 using System.Security.Cryptography;
+using Newtonsoft.Json;
+using QuanLyCamDo.Class;
 
 namespace QuanLyCamDo
 {
@@ -22,20 +26,40 @@ namespace QuanLyCamDo
         {
             try
             {
+                UltilEffect.f_Show_WaitForm();
                 string UserName = tb_TaiKhoan.Text;
                 string Password = Hash(tb_MatKhau.Text);
+                //DataTable result = Account_DTO.Instance.sp_checkLogin_Username_Password(UserName, Password);
+                //if(result.Rows[0]["Result"].ToString() == "1")
+                //{
+                //    MessageBox.Show(result.Rows[0]["Msg"].ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+                //else
+                //    MessageBox.Show(result.Rows[0]["Msg"].ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                DataTable result = Account_DTO.Instance.sp_checkLogin_Username_Password(UserName, Password);
-                if(result.Rows[0]["Result"].ToString() == "1")
+                Dictionary<string, string> header = new Dictionary<string, string>();
+                header.Add("*apiMethod", "GET");
+                header.Add("Content-Type", "application/json");
+
+                List<ParameterAPI_DAO> parameters = new List<ParameterAPI_DAO>()
                 {
-                    MessageBox.Show(result.Rows[0]["Msg"].ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    new ParameterAPI_DAO ("UserName", UserName),
+                    new ParameterAPI_DAO ("Password", tb_MatKhau.Text)
+                };
+                string jsonRespone = MasterCode.Instance.WCF_CallAPI("http://localhost:5000/api/Account/sp_checkLogin_Username_Password", parameters, header, "");
+                Response response = JsonConvert.DeserializeObject<Response>(jsonRespone);
+                if(response.result == 1)
+                {
+                    //MessageBox.Show(response.msg, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    alertControl1.Show(this, "Thông báo", response.msg, "", null);
                 }
                 else
-                    MessageBox.Show(result.Rows[0]["Msg"].ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(response.msg, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                UltilEffect.f_Close_WaitForm();
             }
             catch(Exception ex)
             {
-
+                
             }
         }
 

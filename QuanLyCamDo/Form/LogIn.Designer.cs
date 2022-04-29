@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.groupControlDangNhap = new DevExpress.XtraEditors.GroupControl();
             this.bt_Thoat = new DevExpress.XtraEditors.SimpleButton();
@@ -36,6 +37,8 @@
             this.lb_MatKhau = new System.Windows.Forms.Label();
             this.tb_TaiKhoan = new DevExpress.XtraEditors.TextEdit();
             this.lb_TaiKhoan = new DevExpress.XtraEditors.LabelControl();
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyCamDo.Form.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlDangNhap)).BeginInit();
             this.groupControlDangNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tb_MatKhau.Properties)).BeginInit();
@@ -121,6 +124,10 @@
             this.lb_TaiKhoan.TabIndex = 0;
             this.lb_TaiKhoan.Text = "Tài Khoản:";
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,6 +135,7 @@
             this.ClientSize = new System.Drawing.Size(286, 158);
             this.Controls.Add(this.groupControlDangNhap);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐĂNG NHẬP";
             ((System.ComponentModel.ISupportInitialize)(this.groupControlDangNhap)).EndInit();
             this.groupControlDangNhap.ResumeLayout(false);
@@ -147,6 +155,8 @@
         private System.Windows.Forms.Label lb_MatKhau;
         private DevExpress.XtraEditors.TextEdit tb_TaiKhoan;
         private DevExpress.XtraEditors.LabelControl lb_TaiKhoan;
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }
 
