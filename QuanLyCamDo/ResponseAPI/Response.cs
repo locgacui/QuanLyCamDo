@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace API_QuanLyCamDo.Modules
+namespace QuanLyCamDo.ResponseAPI
 {
     public class Response
     {
@@ -13,7 +14,6 @@ namespace API_QuanLyCamDo.Modules
             this.result = int.Parse(rw["Result"].ToString());
             this.msg = rw["Msg"].ToString().Trim();
         }
-
         public Response() { }
 
         public int result { get; set; }

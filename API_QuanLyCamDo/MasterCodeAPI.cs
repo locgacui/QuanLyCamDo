@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using API_QuanLyCamDo.Modules;
 
 namespace API_QuanLyCamDo
 {
@@ -66,6 +67,93 @@ namespace API_QuanLyCamDo
 
                 adapter.Fill(data);
 
+                connection.Close();
+            }
+
+            return data;
+        }
+
+        public DataSet ExecuteQuery_DS(string query, object[] parameter = null)
+        {
+            string cn = _configuration.GetConnectionString("QuanLyCamDo");
+            DataSet data = new DataSet();
+
+            using (SqlConnection connection = new SqlConnection(cn))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                if (parameter != null)
+                {
+                    string[] listPara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listPara)
+                    {
+                        if (item.Contains('@'))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
+                    }
+                }
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                adapter.Fill(data);
+
+                connection.Close();
+            }
+
+            return data;
+        }
+
+        public DataTable ExecuteProc(string ProcName, List<ParameterStoredProcedure> parameter)
+        {
+            string cn = _configuration.GetConnectionString("QuanLyCamDo");
+            DataTable data = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cn))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(ProcName, connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+                foreach(ParameterStoredProcedure param in parameter)
+                {
+                    command.Parameters.Add(new SqlParameter(param.parameterName, param.parameterValue));
+                }
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                adapter.Fill(data);
+                connection.Close();
+            }
+
+            return data;
+        }
+
+        public DataSet ExecuteProc_DS(string ProcName, List<ParameterStoredProcedure> parameter)
+        {
+            string cn = _configuration.GetConnectionString("QuanLyCamDo");
+            DataSet data = new DataSet();
+
+            using (SqlConnection connection = new SqlConnection(cn))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(ProcName, connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+                foreach (ParameterStoredProcedure param in parameter)
+                {
+                    command.Parameters.Add(new SqlParameter(param.parameterName, param.parameterValue));
+                }
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                adapter.Fill(data);
                 connection.Close();
             }
 
